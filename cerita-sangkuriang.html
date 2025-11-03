@@ -11,12 +11,12 @@
         <a href="#" class="navbar-logo">BelajarSeru<span>.id</span></a>
 
         <div class="navbar-nav">
-            <a href="zahra.html#home">Beranda</a>
-            <a href="zahra.html#belajar">Belajar</a>
-            <a href="zahra.html#game">Game</a>
-            <a href="zahra.html#quiz">Quiz</a>
-            <a href="zahra.html#cerita">Cerita</a>
-            <a href="zahra.html#video">Video</a>
+            <a href="index.html#home">Beranda</a>
+            <a href="index.html#belajar">Belajar</a>
+            <a href="index.html#game">Game</a>
+            <a href="index.html#quiz">Quiz</a>
+            <a href="index.html#cerita">Cerita</a>
+            <a href="index.html#video">Video</a>
         </div>
 
         <div id="star-counter">⭐ 0</div>
@@ -80,13 +80,13 @@
 
         // Close modal and redirect to main page
         document.getElementById('kembali-btn').addEventListener('click', function() {
-            window.location.href = 'zahra.html#cerita';
+            window.location.href = 'index.html#cerita';
         });
 
         // Close modal when clicking overlay or close button
         document.getElementById('story-modal').addEventListener('click', function(e) {
             if (e.target === this || e.target.classList.contains('modal-overlay') || e.target.id === 'close-modal') {
-                window.location.href = 'zahra.html#cerita';
+                window.location.href = 'index.html#cerita';
             }
         });
     </script>
