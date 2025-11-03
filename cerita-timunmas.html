@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timun Mas - BelajarSeru.id</title>
+    <link rel="stylesheet" href="css/zahra.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">BelajarSeru<span>.id</span></a>
+
+        <div class="navbar-nav">
+            <a href="zahra.html#home">Beranda</a>
+            <a href="zahra.html#belajar">Belajar</a>
+            <a href="zahra.html#game">Game</a>
+            <a href="zahra.html#quiz">Quiz</a>
+            <a href="zahra.html#cerita">Cerita</a>
+            <a href="zahra.html#video">Video</a>
+        </div>
+
+        <div id="star-counter">⭐ 0</div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Modal for Story -->
+    <div id="story-modal" class="modal" style="display: flex;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">❌</button>
+            <div id="modal-story-content">
+                <img src="img/timun mas.jpg" alt="Timun Mas" class="modal-story-image">
+                <h3 class="modal-story-title">Timun Mas</h3>
+                <div class="modal-story-text">
+                    <p>Dahulu kala, ada seorang janda miskin yang sangat ingin memiliki anak. Ia berdoa setiap hari di sawahnya. Suatu hari, datanglah seorang kakek tua yang memberinya biji timun emas. Janda itu menanam biji itu dan timun emas pun tumbuh subur.</p>
+                    <p>Dari timun emas itu keluarlah seorang bayi perempuan cantik yang diberi nama Timun Mas. Timun Mas tumbuh menjadi gadis yang cantik dan baik hati. Ia selalu membantu ibunya di sawah dan di rumah.</p>
+                    <p>Suatu hari, datanglah raksasa jahat yang ingin memakan Timun Mas. Raksasa itu bernama Buto Ijo. Ia mengancam akan memakan ibu Timun Mas jika tidak diberi Timun Mas. Ibu Timun Mas sangat takut dan sedih.</p>
+                    <p>Ibu Timun Mas meminta bantuan kepada Mbok Sirni, seorang dukun. Mbok Sirni memberi empat benda ajaib: jarum, garam, terasi, dan cabe. Dengan benda-benda itu, Timun Mas berhasil melarikan diri dari raksasa.</p>
+                    <p>Pertama, Timun Mas melempar jarum yang berubah menjadi hutan bambu. Kedua, ia melempar garam yang berubah menjadi laut asin. Ketiga, terasi berubah menjadi lumpur licin. Terakhir, cabe berubah menjadi ladang cabe panas yang membuat raksasa lari ketakutan.</p>
+                    <p>Timun Mas berhasil kembali ke rumah ibunya dengan selamat. Cerita ini mengajarkan kita tentang keberanian, kecerdikan, dan pentingnya berbakti kepada orang tua.</p>
+                </div>
+                <div class="modal-moral">Kita harus berbakti kepada orang tua dan menggunakan akal budi.</div>
+                <button id="kembali-btn" class="kembali-btn">Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 BelajarSeru.id. Dibuat untuk anak-anak Indonesia.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.navbar-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close modal and redirect to main page
+        document.getElementById('kembali-btn').addEventListener('click', function() {
+            window.location.href = 'zahra.html#cerita';
+        });
+
+        // Close modal when clicking overlay or close button
+        document.getElementById('story-modal').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('modal-overlay') || e.target.id === 'close-modal') {
+                window.location.href = 'zahra.html#cerita';
+            }
+        });
+    </script>
+</body>
+</html>

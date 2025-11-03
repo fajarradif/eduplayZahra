@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BelajarSeru.id - EduPlay</title>
+    <link rel="stylesheet" href="css/zahra.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">BelajarSeru<span>.id</span></a>
+
+        <div class="navbar-nav">
+            <a href="#home">Beranda</a>
+            <a href="#belajar">Belajar</a>
+            <a href="#game">Game</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#cerita">Cerita</a>
+            <a href="#video">Video</a>
+        </div>
+
+        <div id="star-counter">⭐ 0</div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home">
+            <div class="banner">
+                <h2>Selamat Datang di Dunia Belajar Seru!</h2>
+                <p>Yuk, mulai petualangan edukasi kamu hari ini!</p>
+                <button id="start-btn">Mulai Belajar!</button>
+            </div>
+        </section>
+
+        <section id="belajar">
+            <h2>Belajar</h2>
+            <div class="categories">
+                <div class="category">
+                    <h3>Bahasa Indonesia</h3>
+                    <p>Pelajari huruf, kata, dan cerita menarik.</p>
+                    <button class="learn-btn" data-category="bahasa">Mulai</button>
+                </div>
+                <div class="category">
+                    <h3>Matematika</h3>
+                    <p>Hitung angka dan selesaikan teka-teki.</p>
+                    <button class="learn-btn" data-category="matematika">Mulai</button>
+                </div>
+                <div class="category">
+                    <h3>Sains</h3>
+                    <p>Jelajahi dunia hewan, tumbuhan, dan alam.</p>
+                    <button class="learn-btn" data-category="sains">Mulai</button>
+                </div>
+            </div>
+            <div id="lesson-bahasa" class="lesson-container" style="display: none;">
+                <h3>Pelajaran Bahasa Indonesia</h3>
+                <div class="lesson">
+                    <h4>Huruf Vokal</h4>
+                    <p>Huruf vokal adalah A, I, U, E, O. Contoh: A untuk Apel, I untuk Ikan.</p>
+                </div>
+                <div class="lesson">
+                    <h4>Huruf Konsonan</h4>
+                    <p>Huruf konsonan adalah B, C, D, dll. Contoh: B untuk Bola, C untuk Coklat.</p>
+                </div>
+                <div class="lesson">
+                    <h4>Kata Sederhana</h4>
+                    <p>Belajar kata seperti: Rumah, Sekolah, Teman.</p>
+                </div>
+                <button class="back-btn" data-back="bahasa">Kembali</button>
+            </div>
+            <div id="lesson-matematika" class="lesson-container" style="display: none;">
+                <h3>Pelajaran Matematika</h3>
+                <div class="lesson">
+                    <h4>Menghitung Angka</h4>
+                    <p>1, 2, 3, 4, 5... sampai 10. Coba hitung jari tanganmu!</p>
+                </div>
+                <div class="lesson">
+                    <h4>Penjumlahan</h4>
+                    <p>1 + 1 = 2, 2 + 2 = 4. Tambahkan angka dengan temanmu!</p>
+                </div>
+                <div class="lesson">
+                    <h4>Bentuk Geometri</h4>
+                    <p>Lingkaran, Persegi, Segitiga. Cari bentuk di sekitarmu!</p>
+                </div>
+                <button class="back-btn" data-back="matematika">Kembali</button>
+            </div>
+            <div id="lesson-sains" class="lesson-container" style="display: none;">
+                <h3>Pelajaran Sains</h3>
+                <div class="lesson">
+                    <h4>Hewan</h4>
+                    <p>Hewan seperti Kucing, Anjing, Burung. Apa hewan peliharaanmu?</p>
+                </div>
+                <div class="lesson">
+                    <h4>Tumbuhan</h4>
+                    <p>Tumbuhan seperti Pohon, Bunga, Rumput. Pohon memberikan oksigen!</p>
+                </div>
+                <div class="lesson">
+                    <h4>Cuaca</h4>
+                    <p>Hujan, Matahari, Angin. Cuaca apa hari ini?</p>
+                </div>
+                <button class="back-btn" data-back="sains">Kembali</button>
+            </div>
+        </section>
+
+        <section id="game">
+            <h2>Game Edukasi</h2>
+            <div class="games">
+                <div class="game">
+                    <h3>Quiz Huruf</h3>
+                    <p>Jawab pertanyaan tentang huruf!</p>
+                    <button class="play-btn" data-game="quiz">Mainkan</button>
+                </div>
+                <div class="game">
+                    <h3>Hitung Bintang</h3>
+                    <p>Hitung bintang di langit untuk belajar penjumlahan.</p>
+                    <button class="play-btn" data-game="stars">Mainkan</button>
+                </div>
+            </div>
+            <div id="quiz-container" style="display: none;">
+                <h3>Quiz Huruf</h3>
+                <p id="question">Apa huruf pertama dari kata "Apel"?</p>
+                <button class="answer-btn" data-answer="A">A</button>
+                <button class="answer-btn" data-answer="B">B</button>
+                <button class="answer-btn" data-answer="C">C</button>
+                <p id="result"></p>
+            </div>
+            <div id="stars-container" style="display: none;">
+                <h3>Hitung Bintang</h3>
+                <div id="stars-display"></div>
+                <p>Berapa banyak bintang di atas?</p>
+                <input type="number" id="stars-answer" min="1" max="10">
+                <button id="check-stars">Jawab</button>
+                <p id="stars-result"></p>
+            </div>
+        </section>
+
+        <section id="quiz">
+            <h2>Quiz</h2>
+            <div class="games">
+                <div class="game">
+                    <h3>Tebak-Tebakan</h3>
+                    <p>Jawab teka-teki dan pertanyaan ringan!</p>
+                    <button class="play-btn" data-game="riddle">Mainkan</button>
+                </div>
+                <div class="game">
+                    <h3>Pertanyaan Ringan</h3>
+                    <p>Jawab pertanyaan sederhana tentang dunia sekitar.</p>
+                    <button class="play-btn" data-game="lightquiz">Mainkan</button>
+                </div>
+            </div>
+            <div id="riddle-container" style="display: none;">
+                <h3>Tebak-Tebakan</h3>
+                <p id="riddle-question">Apa yang bisa terbang tapi bukan burung?</p>
+                <button class="answer-btn" data-answer="Pesawat">Pesawat</button>
+                <button class="answer-btn" data-answer="Balon">Balon</button>
+                <button class="answer-btn" data-answer="Kupu-kupu">Kupu-kupu</button>
+                <p id="riddle-result"></p>
+            </div>
+            <div id="lightquiz-container" style="display: none;">
+                <h3>Pertanyaan Ringan</h3>
+                <p id="light-question">Berapa jumlah kaki pada seekor kucing?</p>
+                <button class="answer-btn" data-answer="2">2</button>
+                <button class="answer-btn" data-answer="4">4</button>
+                <button class="answer-btn" data-answer="6">6</button>
+                <p id="light-result"></p>
+            </div>
+        </section>
+
+        <section id="cerita">
+            <h2>Cerita Rakyat Nusantara</h2>
+            <button id="random-story-btn" style="margin-bottom: 20px; padding: 10px 20px; font-size: 16px; background-color: #450693; color: white; border: none; border-radius: 10px;">Cerita Acak</button>
+            <div id="stories-list" class="stories-grid">
+                <div class="story-card" data-story="malin-kundang">
+                    <img src="img/malin kundang.jpg" alt="Malin Kundang">
+                    <h3>Malin Kundang</h3>
+                    <p>Cerita tentang anak yang durhaka kepada ibunya.</p>
+                    <a href="cerita-malin.html" class="btn-baca">Baca Cerita</a>
+                </div>
+                <div class="story-card" data-story="timun-mas">
+                    <img src="img/timun mas.jpg" alt="Timun Mas">
+                    <h3>Timun Mas</h3>
+                    <p>Cerita tentang gadis kecil yang berjuang melawan raksasa.</p>
+                    <a href="cerita-timunmas.html" class="btn-baca">Baca Cerita</a>
+                </div>
+                <div class="story-card" data-story="bawang-merah">
+                    <img src="img/bawang merah & bawang putih.jpg" alt="Bawang Merah Bawang Putih">
+                    <h3>Bawang Merah Bawang Putih</h3>
+                    <p>Cerita tentang dua saudara yang berbeda nasib.</p>
+                    <a href="cerita-bawang.html" class="btn-baca">Baca Cerita</a>
+                </div>
+                <div class="story-card" data-story="sangkuriang">
+                    <img src="img/sangkuriang.jpg" alt="Sangkuriang">
+                    <h3>Sangkuriang</h3>
+                    <p>Cerita legenda tentang gunung dan cinta yang tragis.</p>
+                    <a href="cerita-sangkuriang.html" class="btn-baca">Baca Cerita</a>
+                </div>
+                <div class="story-card" data-story="danau-toba">
+                    <img src="img/legenda danau toba.jpg" alt="Danau Toba">
+                    <h3>Legenda Danau Toba</h3>
+                    <p>Asal-usul terbentuknya Danau Toba yang indah.</p>
+                    <a href="cerita-danau-toba.html" class="btn-baca">Baca Cerita</a>
+                </div>
+                <div class="story-card" data-story="kancil-buaya">
+                    <img src="img/kancil&buaya.jpg" alt="Si Kancil dan Buaya">
+                    <h3>Si Kancil dan Buaya</h3>
+                    <p>Cerita fabel tentang kecerdikan kancil.</p>
+                    <a href="cerita-kancil-buaya.html" class="btn-baca">Baca Cerita</a>
+                </div>
+                <div class="story-card" data-story="keong-mas">
+                    <img src="img/keong mas.jpg" alt="Keong Mas">
+                    <h3>Keong Mas</h3>
+                    <p>Cerita tentang keong yang berubah menjadi gadis cantik.</p>
+                    <a href="cerita-keong-mas.html" class="btn-baca">Baca Cerita</a>
+                </div>
+                <div class="story-card" data-story="tangkuban-perahu">
+                    <img src="img/tangkuban perahu.jpg" alt="Tangkuban Perahu">
+                    <h3>Tangkuban Perahu</h3>
+                    <p>Legenda gunung yang terbentuk dari perahu.</p>
+                    <a href="cerita-tangkuban-perahu.html" class="btn-baca">Baca Cerita</a>
+                </div>
+            </div>
+            <!-- Modal for Story -->
+            <div id="story-modal" class="modal" style="display: none;">
+                <div class="modal-overlay"></div>
+                <div class="modal-content">
+                    <button id="close-modal" class="close-btn">❌</button>
+                    <div id="modal-story-content"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video">
+            <h2>Video & Lagu</h2>
+            <div class="videos">
+                <div class="video">
+                    <h3>Lagu Angka</h3>
+                    <a href="https://youtu.be/sRN9RKlMwDQ?si=vo74X5a7aIgzYHkl" class="watch-video-btn">Tonton Lagu Angka</a>
+                </div>
+                <div class="video">
+                    <h3>Lagu Huruf</h3>
+                    <a href="https://youtu.be/mwbbtpcaTus?si=rph0kiouNLJG-zWZ" class="watch-video-btn">Tonton Lagu Huruf</a>
+                </div>
+            </div>
+            <div id="video-message" style="color: red; margin-top: 10px; display: none;"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 BelajarSeru.id. Dibuat untuk anak-anak Indonesia.</p>
+    </footer>
+
+    <script src="js/zahra.js"></script>
+</body>
+</html>

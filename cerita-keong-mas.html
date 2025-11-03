@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keong Mas - BelajarSeru.id</title>
+    <link rel="stylesheet" href="css/zahra.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">BelajarSeru<span>.id</span></a>
+
+        <div class="navbar-nav">
+            <a href="zahra.html#home">Beranda</a>
+            <a href="zahra.html#belajar">Belajar</a>
+            <a href="zahra.html#game">Game</a>
+            <a href="zahra.html#quiz">Quiz</a>
+            <a href="zahra.html#cerita">Cerita</a>
+            <a href="zahra.html#video">Video</a>
+        </div>
+
+        <div id="star-counter">⭐ 0</div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Modal for Story -->
+    <div id="story-modal" class="modal" style="display: flex;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">❌</button>
+            <div id="modal-story-content">
+                <img src="img/keong mas.jpg" alt="Keong Mas" class="modal-story-image">
+                <h3 class="modal-story-title">Keong Mas</h3>
+                <div class="modal-story-text">
+                    <p>Dahulu kala, ada seorang raja yang ingin memiliki anak. Ia berdoa di sungai dan mendapat keong emas. Keong itu tumbuh menjadi gadis cantik bernama Keong Mas. Raja sangat bahagia dan ingin menikahi Keong Mas.</p>
+                    <p>Keong Mas takut karena raja adalah ayah angkatnya. Ia kabur dari istana. Raja mengejarnya dengan pasukan. Keong Mas berlari ke hutan dan sungai.</p>
+                    <p>Untuk menghindari raja, Keong Mas berubah menjadi berbagai benda. Pertama, ia berubah menjadi bunga teratai. Kedua, menjadi burung. Ketiga, menjadi pohon. Tapi raja selalu menemukannya.</p>
+                    <p>Akhirnya, Keong Mas kembali ke sungai dan berubah menjadi keong lagi. Raja menyesal dan belajar bahwa cinta sejati tidak bisa dipaksakan. Cerita ini berasal dari Jawa Tengah.</p>
+                    <p>Moral dari cerita Keong Mas adalah bahwa kita harus jujur dan tidak sombong.</p>
+                    <p>Keong Mas mengajarkan tentang kesabaran dan menerima takdir.</p>
+                </div>
+                <div class="modal-moral">Kita harus jujur dan tidak sombong.</div>
+                <button id="kembali-btn" class="kembali-btn">Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 BelajarSeru.id. Dibuat untuk anak-anak Indonesia.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.navbar-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close modal and redirect to main page
+        document.getElementById('kembali-btn').addEventListener('click', function() {
+            window.location.href = 'zahra.html#cerita';
+        });
+
+        // Close modal when clicking overlay or close button
+        document.getElementById('story-modal').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('modal-overlay') || e.target.id === 'close-modal') {
+                window.location.href = 'zahra.html#cerita';
+            }
+        });
+    </script>
+</body>
+</html>

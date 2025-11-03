@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bawang Merah Bawang Putih - BelajarSeru.id</title>
+    <link rel="stylesheet" href="css/zahra.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">BelajarSeru<span>.id</span></a>
+
+        <div class="navbar-nav">
+            <a href="zahra.html#home">Beranda</a>
+            <a href="zahra.html#belajar">Belajar</a>
+            <a href="zahra.html#game">Game</a>
+            <a href="zahra.html#quiz">Quiz</a>
+            <a href="zahra.html#cerita">Cerita</a>
+            <a href="zahra.html#video">Video</a>
+        </div>
+
+        <div id="star-counter">⭐ 0</div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Modal for Story -->
+    <div id="story-modal" class="modal" style="display: flex;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">❌</button>
+            <div id="modal-story-content">
+                <img src="img/bawang merah & bawang putih.jpg" alt="Bawang Merah Bawang Putih" class="modal-story-image">
+                <h3 class="modal-story-title">Bawang Merah Bawang Putih</h3>
+                <div class="modal-story-text">
+                    <p>Dahulu kala, ada seorang janda yang menikah lagi dengan seorang pria kaya. Dari pernikahan itu, ia memiliki anak perempuan bernama Bawang Merah. Bawang Merah adalah anak yang manja dan jahat. Ia selalu menyiksa saudara tirinya, Bawang Putih.</p>
+                    <p>Bawang Putih adalah anak yang baik hati dan rajin. Ia selalu membantu ibu tirinya di rumah dan di sawah. Bawang Merah iri dengan kebaikan Bawang Putih dan selalu membuatnya menderita.</p>
+                    <p>Suatu hari, Bawang Putih pergi ke hutan untuk mencari kayu bakar. Di hutan, ia bertemu dengan nenek baik hati yang memberinya bantuan. Nenek itu memberi Bawang Putih makanan dan pakaian.</p>
+                    <p>Bawang Merah dengar cerita itu dan iri. Ia pergi ke hutan mencari nenek itu. Tapi nenek itu ternyata adalah makhluk halus yang marah karena Bawang Merah jahat. Nenek itu mengubah Bawang Merah menjadi berbagai benda, dan akhirnya Bawang Merah dimakan oleh binatang buas.</p>
+                    <p>Bawang Putih hidup bahagia dengan ibu tirinya. Cerita ini mengajarkan bahwa kebaikan akan mendapat pahala, sedangkan kejahatan akan mendapat hukuman.</p>
+                    <p>Moral dari cerita Bawang Merah Bawang Putih adalah bahwa kita harus selalu berbuat baik dan tidak iri hati kepada orang lain.</p>
+                </div>
+                <div class="modal-moral">Kita harus baik hati dan tidak iri hati.</div>
+                <button id="kembali-btn" class="kembali-btn">Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 BelajarSeru.id. Dibuat untuk anak-anak Indonesia.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.navbar-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close modal and redirect to main page
+        document.getElementById('kembali-btn').addEventListener('click', function() {
+            window.location.href = 'zahra.html#cerita';
+        });
+
+        // Close modal when clicking overlay or close button
+        document.getElementById('story-modal').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('modal-overlay') || e.target.id === 'close-modal') {
+                window.location.href = 'zahra.html#cerita';
+            }
+        });
+    </script>
+</body>
+</html>

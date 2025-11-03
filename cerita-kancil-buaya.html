@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Si Kancil dan Buaya - BelajarSeru.id</title>
+    <link rel="stylesheet" href="css/zahra.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">BelajarSeru<span>.id</span></a>
+
+        <div class="navbar-nav">
+            <a href="zahra.html#home">Beranda</a>
+            <a href="zahra.html#belajar">Belajar</a>
+            <a href="zahra.html#game">Game</a>
+            <a href="zahra.html#quiz">Quiz</a>
+            <a href="zahra.html#cerita">Cerita</a>
+            <a href="zahra.html#video">Video</a>
+        </div>
+
+        <div id="star-counter">⭐ 0</div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Modal for Story -->
+    <div id="story-modal" class="modal" style="display: flex;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">❌</button>
+            <div id="modal-story-content">
+                <img src="img/kancil&buaya.jpg" alt="Si Kancil dan Buaya" class="modal-story-image">
+                <h3 class="modal-story-title">Si Kancil dan Buaya</h3>
+                <div class="modal-story-text">
+                    <p>Dahulu kala, di sebuah sungai besar, hiduplah seekor kancil yang cerdik. Kancil itu ingin menyeberang sungai, tapi buaya-buaya jahat menghalanginya. Buaya itu lapar dan ingin memakan kancil.</p>
+                    <p>Kancil berpikir cepat. Ia berkata kepada buaya, "Aku akan menghitung kalian satu per satu. Kalian harus berbaris lurus dari sini ke seberang sungai." Buaya-buaya senang dan berbaris.</p>
+                    <p>Kancil mulai menghitung dari kepala buaya pertama. Ia melompat dari kepala satu ke kepala lainnya. Buaya-buaya sabar menunggu karena ingin dimakan.</p>
+                    <p>Ketika kancil hampir sampai di seberang, ia berkata, "Aku salah hitung! Mari ulang dari awal." Tapi kancil melompat ke daratan dan lari pergi. Buaya-buaya marah dan kecewa.</p>
+                    <p>Cerita ini mengajarkan tentang kecerdikan dan pentingnya berpikir sebelum bertindak. Kancil menang karena akalnya, bukan kekuatannya.</p>
+                    <p>Moral dari cerita Si Kancil dan Buaya adalah bahwa kita harus cerdik dan tidak sombong.</p>
+                </div>
+                <div class="modal-moral">Kita harus cerdik dan tidak sombong.</div>
+                <button id="kembali-btn" class="kembali-btn">Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 BelajarSeru.id. Dibuat untuk anak-anak Indonesia.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.navbar-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close modal and redirect to main page
+        document.getElementById('kembali-btn').addEventListener('click', function() {
+            window.location.href = 'zahra.html#cerita';
+        });
+
+        // Close modal when clicking overlay or close button
+        document.getElementById('story-modal').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('modal-overlay') || e.target.id === 'close-modal') {
+                window.location.href = 'zahra.html#cerita';
+            }
+        });
+    </script>
+</body>
+</html>
